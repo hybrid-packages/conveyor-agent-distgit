@@ -56,7 +56,7 @@ ConveyorAgent
 Summary:        ConveyorAgent tests
 Requires:       python-%{pypi_name} = %{epoch}:%{version}-%{release}
 
-%description -n python-%{pypi-Name}-tests
+%description -n python-%{pypi_name}-tests
 ConveyorAgent tests
 
 %prep
@@ -89,7 +89,7 @@ install -p -D -m 644 %{SOURCE10} %{buildroot}%{_unitdir}/conveyoragent.service
 install -p -D -m 440 %{SOURCE2} %{buildroot}%{_sysconfdir}/sudoers.d/conveyoragent
 
 # Install logrotate
-install -p -D -m 644 %{SOURCE1} %{nuildroot}%{_sysconfdir}/logrotate.d/conveyoragent
+install -p -D -m 644 %{SOURCE1} %{buildroot}%{_sysconfdir}/logrotate.d/conveyoragent
 
 # Remove unneeded in production stuff
 rm -fr %{buildroot}%{python2_sitelib}/run-tests.*
@@ -104,18 +104,18 @@ exit 0
 %files -n python-%{pypi_name}
 %defattr(-,root,root)
 %{python2_sitelib}/conveyoragent
-%{python2_sitelib/conveyoragent-*.egg-info
+%{python2_sitelib}/conveyoragent-*.egg-info
 %config(noreplace) %attr(0, conveyor, conveyor) %{_sysconfdir}/conveyoragent/*
-%dir %attr(755, conveyor, conveyor) %{_localstatedir)/lib/conveyoragent
+%dir %attr(755, conveyor, conveyor) %{_localstatedir}/lib/conveyoragent
 %{_bindir}/*
-%{unitdir}/*.service
+%{_unitdir}/*.service
 %config(noreplace) %{_sysconfdir}/logrotate.d/conveyoragent
 %config(noreplace) %{_sysconfdir}/sudoers.d/conveyoragent
 %dir %attr(0750, conveyor, conveyor) %{_localstatedir}/log/conveyoragent
 
-%file -n python-%{pypi_name}-tests
+%files -n python-%{pypi_name}-tests
 %license LICENSE
-%{python2_sitelib}/conveyoragent.tests
+%{python2_sitelib}/conveyoragent/tests
 
 %changelog
 
