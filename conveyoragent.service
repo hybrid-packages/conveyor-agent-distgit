@@ -1,0 +1,14 @@
+[Unit]
+Description=ConveyorAgent
+After=syslog.target network.target
+
+[Service]
+Type=notify
+NotifyAccess=all
+TimeoutStartSec=0
+Restart=always
+User=root
+ExecStart=/usr/bin/conveyoragent --config-file /etc/conveyoragent/conveyoragent.conf
+
+[Install]
+WantedBy=multi-user.target
