@@ -101,6 +101,15 @@ if ! getent passwd conveyor >/dev/null; then
 fi
 exit 0
 
+%post -n python-%{pypi_name}
+%systemd_post conveyoragent
+
+%preun -n python-%{pypi_name}
+%systemd_preun conveyoragent
+
+%postun -n python-%{pypi_name}
+%systemd_postun_with_restart conveyoragent
+
 %files -n python-%{pypi_name}
 %defattr(-,root,root)
 %{python2_sitelib}/conveyoragent
@@ -116,16 +125,5 @@ exit 0
 %files -n python-%{pypi_name}-tests
 %license LICENSE
 %{python2_sitelib}/conveyoragent/tests
-
-%changelog
-
-# Delete test
-rm -fr %{buildroot}%{python-sitelib}/conveyorclient/tests
-
-%files -n python-%{name}
-%{_bindir}/conveyor
-%{python2_sitelib}/conveyorclient
-%{python2_sitelib}/*.egg-info
-
 
 %changelog
