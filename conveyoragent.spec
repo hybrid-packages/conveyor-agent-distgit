@@ -35,13 +35,10 @@ Requires:       python-eventlet >= 0.17.4
 Requires:       python-greenlet
 Requires:       python-iso8601
 Requires:       python-oslo-config >= 3.4.0
-Requires:       python-oslo-db >= 4.1.0
 Requires:       python-oslo-i18n >= 2.1.0
-Requires:       python-oslo-messaging >= 2.1.0
 Requires:       python-oslo-serialization >= 2.1.0
 Requires:       python-oslo-utils >= 3.4.0
 Requires:       python-paste
-Requires:       python-paramiko
 Requires:       python-pbr
 Requires:       python-retrying
 Requires:       python-routes
