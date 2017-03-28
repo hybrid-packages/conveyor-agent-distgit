@@ -36,14 +36,18 @@ Requires:       python-greenlet
 Requires:       python-iso8601
 Requires:       python-oslo-config >= 3.4.0
 Requires:       python-oslo-i18n >= 2.1.0
+Requires:       python-oslo-log >= 1.14.0
+Requires:       python-oslo-rootwrap >= 2.0.0
 Requires:       python-oslo-serialization >= 2.1.0
-Requires:       python-oslo-utils >= 3.4.0
+Requires:       python-oslo-service >= 1.0.0
+Requires:       python-oslo-utils >= 3.5.0
 Requires:       python-paste
 Requires:       python-pbr
 Requires:       python-retrying
 Requires:       python-routes
 Requires:       python-six >= 1.9.0
 Requires:       python-webob >= 1.2.3
+
 
 %description -n python-%{pypi_name}
 ConveyorAgent
