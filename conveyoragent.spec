@@ -2,27 +2,29 @@
 %global with_doc %{!?_without_doc:1}%{?_without_doc:0}
 %global pypi_name conveyoragent
 
-Name:			conveyor-agent
-Epoch:			1
-Version:		XXX
-Release:		XXX
-Summary:		ConveyorAgent
+Name:           conveyor-agent
+Epoch:          1
+Version:        XXX
+Release:        XXX
+Summary:        ConveyorAgent
 
-License:		ASL 2.0
-URL:   			https://github.com/Hybrid-Cloud/conveyor-agent
-Source0:		https://github.com/Hybrid-Cloud/%{name}/%{name}-%{upstream_version}.tar.gz
+License:        ASL 2.0
+URL:            https://github.com/Hybrid-Cloud/conveyor-agent
+Source0:        https://github.com/Hybrid-Cloud/%{name}/%{name}-%{upstream_version}.tar.gz
 
 Source1:        conveyoragent.logrotate
 Source2:        conveyoragent.sudoers
 
 Source10:       conveyoragent.service
 
-BuildArch:		noarch
+BuildArch:      noarch
 BuildRequires:  intltool
 BuildRequires:  python2-devel
 BuildRequires:  python-setuptools
 BuildRequires:  python-pbr
 BuildRequires:  python-d2to1
+BuildRequires:  python-oslo-config
+BuildRequires:  python-oslo-log
 
 %description
 ConveyorAgent
