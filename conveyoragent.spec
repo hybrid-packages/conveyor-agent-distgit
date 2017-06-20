@@ -69,6 +69,8 @@ find . \( -name .gitignore -o -name .placeholder \) -delete
 rm -f {,test-}requirements.txt
 
 %build
+PYTHONPATH=. oslo-config-generator --config-file=etc/conveyoragent/conveyoragent-config-generator.conf
+
 %{__python2} setup.py build
 
 %install
@@ -80,7 +82,7 @@ install -d -m 750 %{buildroot}%{_localstatedir}/log/conveyoragent
 install -d -m 750 %{buildroot}%{_sysconfdir}/conveyoragent
 
 # Install config files
-install -p -D -m 755 etc/conveyoragent/hybrid-v2v.conf %{buildroot}%{_sysconfdir}/conveyoragent/conveyoragent.conf
+install -p -D -m 755 etc/conveyoragent/conveyoragent.conf.sample %{buildroot}%{_sysconfdir}/conveyoragent/conveyoragent.conf
 install -p -D -m 755 etc/conveyoragent/api-paste.ini %{buildroot}%{_sysconfdir}/conveyoragent/api-paste.ini
 
 # Install initscripts for conveyoragent services
